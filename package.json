@@ -7,18 +7,31 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
+    "lint:fix": "eslint src/**/*.{js,jsx,ts,tsx} --fix"
   },
   "dependencies": {
+    "jiti": "^2.7.0",
     "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react-dom": "^19.2.6",
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
+    "@eslint-react/eslint-plugin": "^5.8.16",
+    "@eslint/compat": "^2.1.0",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.9.2",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "latest",
     "@vitejs/plugin-rsc": "latest",
+    "eslint": "^10.3.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "prettier": "3.8.3",
     "rsc-html-stream": "^0.0.7",
+    "typescript-eslint": "^8.60.1",
     "vite": "^8.0.16"
   }
 }
