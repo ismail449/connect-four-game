@@ -1,5 +1,5 @@
 {
-  "name": "@vitejs/plugin-rsc-examples-starter",
+  "name": "connect-four-game",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
