@@ -21,17 +21,27 @@
   --indigo-500: #7945ff;
   --indigo-700: #5c2dd5;
   --rose-400: #fd6687;
-  --amber-300: #fbbf24;
+  --amber-300: #ffce67;
 
   /*Text Presets*/
-  --text-preset-1: bold 3.5rem/125%;
-  --text-preset-1-mobile: bold 2rem/130%;
-  --text-preset-2: bold 1.5rem/130%;
-  --text-preset-3: bold 1.25rem/130%;
-  --text-preset-4-bold: bold 1rem/125%;
-  --text-preset-4-medium: bold 1rem/125%;
+  --text-preset-1: bold 3.5rem/125% "Space Grotesk";
+  --text-preset-1-mobile: bold 2rem/130% "Space Grotesk";
+  --text-preset-2: bold 1.5rem/130% "Space Grotesk";
+  --text-preset-3: bold 1.25rem/130% "Space Grotesk";
+  --text-preset-4-bold: bold 1rem/125% "Space Grotesk";
+  --text-preset-4-medium: bold 1rem/125% "Space Grotesk";
 }
 
 * {
   font-family: "Space Grotesk";
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: var(--indigo-700);
+  height: 100%;
+  margin: 0;
 }

@@ -59,7 +59,7 @@ export default defineConfig([
     rules: {
       "css/no-duplicate-imports": "error",
       "css/no-empty-blocks": "error",
-      "css/no-invalid-properties": "error",
+      "css/no-invalid-properties": ["error", { allowUnknownVariables: true }],
     },
   },
 ]);
