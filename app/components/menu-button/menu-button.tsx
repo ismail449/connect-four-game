@@ -1,25 +1,27 @@
-import { type ComponentPropsWithoutRef } from "react";
+import { Link, type Path } from "react-router";
 
 import styles from "./menu-button.module.css";
 
-type Props = ComponentPropsWithoutRef<"button"> & {
+type Props = {
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "danger";
+  to: string | Path;
+  className: string;
 };
 
 const MenuButton = ({
   children,
   variant = "primary",
   className,
-  ...rest
+  to,
 }: Props) => {
   return (
-    <button
+    <Link
       className={`${className ? className : ""} ${styles.menuButton} ${styles[variant]}`}
-      {...rest}
+      to={to}
     >
       {children}
-    </button>
+    </Link>
   );
 };
 

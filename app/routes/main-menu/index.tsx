@@ -17,11 +17,15 @@ export function ServerComponent() {
       <div className={styles.mainMenu}>
         <Logo className={styles.logo} />
         <div className={styles.menuButtons}>
-          <MenuButton className={styles.mainMenuButton}>
+          <MenuButton to="/" className={styles.mainMenuButton}>
             <span>PLAY VS PLAYER</span>{" "}
             <PlayerVSPlayerIcon className={styles.playerVSPlayerIcon} />
           </MenuButton>
-          <MenuButton variant="secondary" className={styles.mainMenuButton}>
+          <MenuButton
+            to="/"
+            variant="secondary"
+            className={styles.mainMenuButton}
+          >
             GAME RULES
           </MenuButton>
         </div>
