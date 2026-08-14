@@ -6,6 +6,7 @@
   border-radius: 20px;
   box-shadow: 0px 10px 0px 0px var(--neutral-950);
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .menuButton:hover {

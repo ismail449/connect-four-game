@@ -22,7 +22,7 @@ export function ServerComponent() {
             <PlayerVSPlayerIcon className={styles.playerVSPlayerIcon} />
           </MenuButton>
           <MenuButton
-            to="/"
+            to="/rules"
             variant="secondary"
             className={styles.mainMenuButton}
           >
