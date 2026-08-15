@@ -5,7 +5,10 @@ import Button from "~/assets/icons/RulesButton.svg?react";
 import styles from "./index.module.css";
 
 export function meta() {
-  return [{ title: "Rules" }, { name: "description", content: "Game rules" }];
+  return [
+    { title: "Game Rules" },
+    { name: "description", content: "Game rules" },
+  ];
 }
 
 export function ServerComponent() {
