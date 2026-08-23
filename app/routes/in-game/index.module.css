@@ -1,0 +1,18 @@
+.inGamePage {
+  height: 100%;
+  position: relative;
+  background-color: var(--indigo-500);
+}
+
+.inGamePage:after {
+  content: "";
+  width: 100%;
+  height: 12.5rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: var(--radius-60) var(--radius-60) 0 0;
+  margin-inline: auto;
+  background-color: var(--indigo-700);
+}
