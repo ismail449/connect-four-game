@@ -1,0 +1,13 @@
+.navigationButton {
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 0.594rem 1.25rem;
+  font: var(--text-preset-4-bold);
+  background-color: var(--indigo-700);
+  color: var(--neutral-0);
+  cursor: pointer;
+}
+
+.navigationButton:hover {
+  background-color: var(--rose-400);
+}
