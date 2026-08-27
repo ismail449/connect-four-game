@@ -1,6 +1,4 @@
-import { Link } from "react-router";
-
-import Button from "~/assets/icons/RulesButton.svg?react";
+import { RulesButton } from "~/components/rules-button/rules-button";
 
 import styles from "./index.module.css";
 
@@ -37,10 +35,7 @@ export function ServerComponent() {
             </li>
           </ol>
         </section>
-
-        <Link className={styles.buttonIcon} to="/">
-          <Button />
-        </Link>
+        <RulesButton to="/" />
       </div>
     </div>
   );

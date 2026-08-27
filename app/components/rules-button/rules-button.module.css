@@ -1,0 +1,32 @@
+.rulesButton {
+  border-radius: var(--radius-full);
+  padding: 1.375rem;
+  border: 0.125rem solid var(--neutral-950);
+  background-color: var(--rose-400);
+  cursor: pointer;
+  box-shadow: 0 0.313rem 0 0 var(--neutral-950);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+}
+
+.rulesButton:hover {
+  border-color: var(--indigo-700);
+  box-shadow: 0 0.313rem 0 0 var(--indigo-700);
+}
+
+.rulesButton::after {
+  content: "";
+  display: inline-block;
+  width: 1.188rem;
+  height: 1.875rem;
+
+  border: solid var(--neutral-0);
+  border-width: 0 0.188rem 0.188rem 0;
+
+  transform: rotate(45deg);
+
+  margin-block-end: 0.25rem;
+}
