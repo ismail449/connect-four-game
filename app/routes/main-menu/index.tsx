@@ -11,7 +11,7 @@ export function meta() {
   ];
 }
 
-export function ServerComponent() {
+export default function MainMenu() {
   return (
     <div className={styles.mainMenuPage}>
       <div className={styles.mainMenu}>

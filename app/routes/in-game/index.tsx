@@ -3,6 +3,6 @@ export function meta() {
   return [{ title: "In Game" }];
 }
 
-export function ServerComponent() {
+export default function InGame() {
   return <div className={styles.inGamePage}></div>;
 }

@@ -9,7 +9,7 @@ export function meta() {
   ];
 }
 
-export function ServerComponent() {
+export default function Rules() {
   return (
     <div className={styles.rulesPage}>
       <div className={styles.rulesContainer}>
