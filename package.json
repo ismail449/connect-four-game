@@ -12,6 +12,7 @@
     "@eslint/css": "github:eslint/css",
     "@react-router/serve": "8.0.0",
     "@remix-run/node-fetch-server": "0.13.0",
+    "radix-ui": "^1.6.7",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router": "8.0.0"
