@@ -1,27 +1,47 @@
+import type { ComponentProps } from "react";
 import { Link, type Path } from "react-router";
 
 import styles from "./menu-button.module.css";
 
-type Props = {
+type BaseProps = {
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "danger";
-  to: string | Path;
-  className: string;
+  className?: string;
 };
 
-const MenuButton = ({
-  children,
-  variant = "primary",
-  className,
-  to,
-}: Props) => {
+type LinkProps = BaseProps & {
+  to: string | Path;
+};
+
+type ButtonProps = BaseProps & ComponentProps<"button"> & { to?: never };
+
+type Props = LinkProps | ButtonProps;
+
+const MenuButton = (props: Props) => {
+  const {
+    children,
+    variant = "primary",
+    className,
+    to,
+    ...buttonProps
+  } = props;
+
+  const classes = [className, styles.menuButton, styles[variant]]
+    .filter(Boolean)
+    .join(" ");
+
+  if (to) {
+    return (
+      <Link className={classes} to={to}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <Link
-      className={`${className ? className : ""} ${styles.menuButton} ${styles[variant]}`}
-      to={to}
-    >
+    <button {...buttonProps} className={classes}>
       {children}
-    </Link>
+    </button>
   );
 };
 
