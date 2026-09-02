@@ -1,0 +1,36 @@
+.pauseMenuOverlay {
+  background-color: var(--neutral-950);
+  opacity: 0.4;
+  position: fixed;
+  inset: 0;
+}
+
+.pauseMenu {
+  width: 30rem;
+  background-color: var(--indigo-500);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: var(--radius-40);
+  border: 2px solid var(--neutral-950);
+  box-shadow: 0 0.625rem 0 0 var(--neutral-950);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem;
+
+  .title {
+    font: var(--text-preset-1);
+    color: var(--neutral-0);
+    margin-block-end: 2.5rem;
+  }
+
+  .buttonsWrapper {
+    display: flex;
+    gap: 1.875rem;
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+}

@@ -1,26 +1,38 @@
 import {
-  Content as DialogContent,
-  Overlay as DialogOverlay,
-  Portal as DialogPortal,
-  Root as DialogRoot,
-  Title as DialogTitle,
-  Trigger as DialogTrigger,
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
 } from "radix-ui/dialog";
 
+import MenuButton from "../menu-button/menu-button";
 import { NavigationButton } from "../navigation-button/navigation-button";
+import styles from "./pause-menu.module.css";
 
 export default function PauseMenu() {
   return (
-    <DialogRoot>
+    <Dialog>
       <DialogTrigger asChild>
         <NavigationButton>Menu</NavigationButton>
       </DialogTrigger>
       <DialogPortal>
-        <DialogOverlay />
-        <DialogContent>
-          <DialogTitle>Pause</DialogTitle>
+        <DialogOverlay className={styles.pauseMenuOverlay} />
+        <DialogContent className={styles.pauseMenu}>
+          <DialogTitle className={styles.title}>Pause</DialogTitle>
+          <div className={styles.buttonsWrapper}>
+            <DialogClose asChild>
+              <MenuButton variant="secondary">Continue</MenuButton>
+            </DialogClose>
+            <MenuButton variant="secondary">RESTART</MenuButton>
+            <MenuButton variant="danger" to="/">
+              QUIT GAME
+            </MenuButton>
+          </div>
         </DialogContent>
       </DialogPortal>
-    </DialogRoot>
+    </Dialog>
   );
 }
