@@ -2,6 +2,12 @@
   height: 100%;
   position: relative;
   background-color: var(--indigo-500);
+
+  .gameContainer {
+    width: 39.5rem;
+    margin-inline: auto;
+    padding-block-start: 53px;
+  }
 }
 
 .inGamePage:after {
