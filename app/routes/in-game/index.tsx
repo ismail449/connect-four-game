@@ -1,3 +1,4 @@
+import GameBoard from "~/components/game-board/game-board";
 import InGameNaveBar from "~/components/in-game-nav-bar/in-game-nav-bar";
 
 import styles from "./index.module.css";
@@ -10,6 +11,7 @@ export default function InGame() {
     <div className={styles.inGamePage}>
       <div className={styles.gameContainer}>
         <InGameNaveBar />
+        <GameBoard />
       </div>
     </div>
   );
