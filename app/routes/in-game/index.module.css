@@ -7,6 +7,9 @@
     width: 39.5rem;
     margin-inline: auto;
     padding-block-start: 53px;
+    display: flex;
+    flex-direction: column;
+    gap: 3.188rem;
   }
 }
 

@@ -1,35 +1,32 @@
+import { calculateGridHolePosition } from "~/utils/calculateGridHolePosition";
 import { generateGrid } from "~/utils/generateGrid";
 
 import styles from "./game-board.module.css";
+/* constants */
+const columns = 7;
+const rows = 6;
+const holeRadius = 32;
+const padding = 24;
 
 export default function GameBoard() {
-  const columns = 7;
-  const rows = 6;
-  const cellSize = 100;
-  const holeRadius = 32;
-
   return (
     <div className={styles.boardContainer}>
-      <svg
-        className={styles.board}
-        viewBox={`0 0 ${columns * cellSize} ${rows * cellSize}`}
-      >
+      <svg className={styles.board} viewBox={`0 0 632 584`}>
         <mask id="board-mask">
           <rect width="100%" height="100%" fill="white" />
 
           {generateGrid(columns, rows).map((uuid, i) => {
             const col = i % columns;
             const row = Math.floor(i / columns);
+
+            const [cy, cx] = calculateGridHolePosition(
+              row,
+              col,
+              holeRadius,
+              padding
+            );
             return (
-              <circle
-                width="64px"
-                height="64px"
-                key={uuid}
-                cx={col * cellSize + cellSize / 2}
-                cy={row * cellSize + cellSize / 2}
-                r={holeRadius}
-                fill="black"
-              />
+              <circle key={uuid} cx={cx} cy={cy} r={holeRadius} fill="black" />
             );
           })}
         </mask>
@@ -39,11 +36,18 @@ export default function GameBoard() {
         {generateGrid(columns, rows).map((uuid, i) => {
           const col = i % columns;
           const row = Math.floor(i / columns);
+          const [cy, cx] = calculateGridHolePosition(
+            row,
+            col,
+            holeRadius,
+            padding
+          );
+
           return (
             <circle
               key={`border-${uuid}`}
-              cx={col * cellSize + cellSize / 2}
-              cy={row * cellSize + cellSize / 2}
+              cx={cx}
+              cy={cy}
               r={holeRadius}
               fill="transparent"
               className={styles.boardHole}
