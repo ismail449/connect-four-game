@@ -1,0 +1,5 @@
+.marker {
+  path {
+    fill: var(--player-color);
+  }
+}

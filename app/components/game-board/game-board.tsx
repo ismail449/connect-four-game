@@ -1,16 +1,24 @@
+"use client";
+import { useRef } from "react";
+
+import { columns, holeRadius, padding, rows } from "~/constants/game-board";
 import { calculateGridHolePosition } from "~/utils/calculateGridHolePosition";
 import { generateGrid } from "~/utils/generateGrid";
 
+import { ColumnMarker } from "../column-marker/column-marker";
 import styles from "./game-board.module.css";
-/* constants */
-const columns = 7;
-const rows = 6;
-const holeRadius = 32;
-const padding = 24;
 
 export default function GameBoard() {
+  const boardContainerRef = useRef(null);
+
   return (
-    <div className={styles.boardContainer}>
+    <div className={styles.boardContainer} ref={boardContainerRef}>
+      {/** board border is 3px thick, so shift the marker 3 px to the left */}
+      <ColumnMarker
+        additionalPadding={3}
+        boardContainerRef={boardContainerRef}
+        currentPlayerColor="var(--amber-300)"
+      />
       <svg className={styles.board} viewBox={`0 0 632 584`}>
         <mask id="board-mask">
           <rect width="100%" height="100%" fill="white" />
