@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-import Logo from "~/assets/icons/Logo.svg?react";
+import Logo from "~/assets/images/Logo.svg?react";
 
 import { NavigationButton } from "../navigation-button/navigation-button";
 import PauseMenu from "../pause-menu/pause-menu";

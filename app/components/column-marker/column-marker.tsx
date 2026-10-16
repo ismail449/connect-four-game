@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import TickSound from "~/assets/audio/tick sound.mp3";
-import Marker from "~/assets/icons/column-marker.svg?react";
+import Marker from "~/assets/images/column-marker.svg?react";
 import { columns, holeRadius, padding } from "~/constants/game-board";
 import { calculateGridHolePosition } from "~/utils/calculateGridHolePosition";
 
@@ -31,7 +31,7 @@ export const ColumnMarker = ({
 
     const boardContainer = boardContainerRef.current;
 
-    const trackMouseMovement = async (e: MouseEvent) => {
+    const trackMouseMovement = (e: MouseEvent) => {
       const board = boardContainer.getBoundingClientRect();
       const boardWidth = board.right - board.left;
       const sectionWidth = boardWidth / columns;

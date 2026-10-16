@@ -1,5 +1,5 @@
-import Logo from "~/assets/icons/Logo.svg?react";
-import PlayerVSPlayerIcon from "~/assets/icons/player-vs-player.svg?react";
+import Logo from "~/assets/images/Logo.svg?react";
+import PlayerVSPlayerIcon from "~/assets/images/player-vs-player.svg?react";
 import MenuButton from "~/components/menu-button/menu-button";
 
 import styles from "./index.module.css";
