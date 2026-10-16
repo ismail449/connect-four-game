@@ -22,4 +22,5 @@
 .boardHole {
   stroke: var(--neutral-950);
   stroke-width: 3px;
+  cursor: pointer;
 }

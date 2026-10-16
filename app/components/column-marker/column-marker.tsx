@@ -48,6 +48,8 @@ export const ColumnMarker = ({
         holeRadius,
         padding
       );
+      if (exactXPosition > cx + holeRadius || exactXPosition < cx - holeRadius)
+        return;
       const nextMarkerPosition = cx + additionalPadding - markerWidth / 2;
       if (nextMarkerPosition === markerPosition) return;
       setMarkerPosition(nextMarkerPosition);
