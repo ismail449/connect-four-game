@@ -6,6 +6,7 @@ import { calculateGridHolePosition } from "~/utils/calculateGridHolePosition";
 import { generateGrid } from "~/utils/generateGrid";
 
 import { ColumnMarker } from "../column-marker/column-marker";
+import { GameBoarCoins } from "../game-board-coins/game-board-coins";
 import styles from "./game-board.module.css";
 
 export default function GameBoard() {
@@ -20,6 +21,8 @@ export default function GameBoard() {
         currentPlayerColor="var(--amber-300)"
       />
       <svg className={styles.board} viewBox={`0 0 632 584`}>
+        <GameBoarCoins boardContainerRef={boardContainerRef} />
+
         <mask id="board-mask">
           <rect width="100%" height="100%" fill="white" />
 
