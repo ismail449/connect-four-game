@@ -1,4 +1,4 @@
-const calculateDistance = (
+export const calculateDistance = (
   position: number,
   radius: number,
   padding: number

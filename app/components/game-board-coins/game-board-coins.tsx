@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 
 import { columns, holeRadius, padding, rows } from "~/constants/game-board";
-import { calculateGridHolePosition } from "~/utils/calculateGridHolePosition";
+import { calculateDistance } from "~/utils/calculateGridHolePosition";
 
 type Coin = {
   cx: number;
@@ -39,8 +39,7 @@ export const GameBoarCoins = ({ boardContainerRef }: Props) => {
       if (rowIndex < 0) rowIndex = 0;
       if (rowIndex >= rows) rowIndex = rows - 1;
 
-      const [, cx] = calculateGridHolePosition(
-        rowIndex,
+      const cx = calculateDistance(
         columnIndex,
         holeRadius,
         padding
@@ -49,9 +48,8 @@ export const GameBoarCoins = ({ boardContainerRef }: Props) => {
         return;
       const columnCoins = coins.filter(({ cx: coinCx }) => coinCx === cx);
       if (columnCoins.length >= rows) return;
-      const [cy] = calculateGridHolePosition(
+      const cy = calculateDistance(
         rows - 1 - columnCoins.length,
-        columnIndex,
         holeRadius,
         padding
       );
