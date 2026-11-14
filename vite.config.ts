@@ -1,10 +1,11 @@
-import { unstable_reactRouterRSC as reactRouterRSC } from "@react-router/dev/vite";
-import rsc from "@vitejs/plugin-rsc";
+import { reactRouter } from "@react-router/dev/vite";
 import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
+import devtoolsJson from 'vite-plugin-devtools-json';
+
 
 export default defineConfig({
-  plugins: [reactRouterRSC(), rsc(), svgr()],
+  plugins: [reactRouter(), svgr(), devtoolsJson()],
   resolve: {
     tsconfigPaths: true,
   },

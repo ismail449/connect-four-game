@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 
 import TickSound from "~/assets/audio/tick sound.mp3";
