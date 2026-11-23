@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
+import HitSound from "~/assets/audio/hit sound.mp3";
 import { columns, holeRadius, padding, rows } from "~/constants/game-board";
 import { calculateDistance } from "~/utils/calculateGridHolePosition";
+
 import styles from "./game-board-coins.module.css";
 
 type Coin = {
@@ -14,6 +16,13 @@ type Coin = {
 type Props = {
   boardContainerRef: React.RefObject<HTMLElement | null>;
 };
+
+function playHit(volume: number) {
+  const hitSound = new Audio(HitSound)
+  hitSound.volume = volume;
+  hitSound.play();
+}
+
 
 export const GameBoarCoins = ({ boardContainerRef }: Props) => {
   const [coins, setCoins] = useState<Coin[]>([]);
@@ -64,19 +73,30 @@ export const GameBoarCoins = ({ boardContainerRef }: Props) => {
     };
   }, [boardContainerRef, coins]);
 
+  const onFallAnimationStart = (duration: number, volume: number) => {
+    const soundPlayProperties = [{ duration: duration * (69 / 100), volume }, { duration, volume: volume / 2 }];
+    for (const prop of soundPlayProperties) {
+      setTimeout(() => playHit(prop.volume), prop.duration);
+    }
+  }
+
   return (
     <>
-      {coins.map(({ cx, cy, fill, rowIndex }) => (
-        <circle
-          style={
-            {
-              "--landing-y": cy,
-              "--re-bounce-y": cy - ((rowIndex / 100) * cy),
-              "--fall-duration": `${(rowIndex + 1) * 100}ms`
-            } as React.CSSProperties
-          }
-          className={styles.coin} key={`${cx}-${cy}`} r={holeRadius} cx={cx} cy={cy} fill={fill} />
-      ))}
+      {coins.map(({ cx, cy, fill, rowIndex }) => {
+        const fallDuration = (rowIndex + 1) * 100;
+        const fallVolume = rowIndex / (rows - 1);
+        return (
+          <circle
+            onAnimationStart={() => onFallAnimationStart(fallDuration, fallVolume)}
+            style={
+              {
+                "--landing-y": cy,
+                "--re-bounce-y": cy - ((rowIndex / 100) * cy),
+                "--fall-duration": `${fallDuration}ms`
+              } as React.CSSProperties
+            }
+            className={styles.coin} key={`${cx}-${cy}`} r={holeRadius} cx={cx} cy={cy} fill={fill} />)
+      })}
     </>
   );
 };

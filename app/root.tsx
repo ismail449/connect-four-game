@@ -24,6 +24,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+        <footer>
+          <a href="https://freesound.org/people/TheRealISA/sounds/585601/">pokerchip_table_snap_drop.flac</a> by <a href="https://freesound.org/people/TheRealISA/">TheRealISA</a> | License: <a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0</a>
+        </footer>
       </body>
     </html>
   );
