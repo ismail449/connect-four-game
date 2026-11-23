@@ -2,6 +2,7 @@
   height: 100%;
   position: relative;
   background-color: var(--indigo-500);
+  isolation: isolate;
 
   .gameContainer {
     width: 39.5rem;
