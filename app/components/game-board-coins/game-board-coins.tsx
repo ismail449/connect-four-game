@@ -82,6 +82,12 @@ export const GameBoarCoins = ({ boardContainerRef }: Props) => {
 
   return (
     <>
+      <filter id="blurMe">
+        <feOffset in="SourceAlpha" dy="5" result="shiftedInner" />
+        <feComposite in="SourceAlpha" in2="shiftedInner" operator="out" result="inset" />
+        <feComposite in="inset" operator="arithmetic" k2="0.7" result="softInset" />
+        <feComposite in="softInset" in2="SourceGraphic" operator="over" />
+      </filter>
       {coins.map(({ cx, cy, fill, rowIndex }) => {
         const fallDuration = (rowIndex + 1) * 100;
         const fallVolume = rowIndex / (rows - 1);
@@ -95,7 +101,8 @@ export const GameBoarCoins = ({ boardContainerRef }: Props) => {
                 "--fall-duration": `${fallDuration}ms`
               } as React.CSSProperties
             }
-            className={styles.coin} key={`${cx}-${cy}`} r={holeRadius} cx={cx} cy={cy} fill={fill} />)
+            className={styles.coin} key={`${cx}-${cy}`} r={holeRadius} cx={cx} cy={cy} filter="url(#blurMe)" fill={fill} />
+        )
       })}
     </>
   );
