@@ -4,6 +4,7 @@ import eslintReact from "@eslint-react/eslint-plugin";
 import { defineConfig } from "eslint/config";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import tseslint from "typescript-eslint";
+import stylistic from "@stylistic/eslint-plugin";
 
 export default defineConfig([
   {
@@ -42,10 +43,13 @@ export default defineConfig([
       "@eslint-react/set-state-in-render": "error",
       "simple-import-sort/exports": "error",
       "simple-import-sort/imports": "error",
+      "@stylistic/indent": ["error", 2],
+      "@stylistic/max-len": ["warn", { code: 100 }],
     },
 
     plugins: {
       "simple-import-sort": simpleImportSort,
+      "@stylistic": stylistic,
     },
 
     ignores: ["src/assets/**", "src/framework/**"],

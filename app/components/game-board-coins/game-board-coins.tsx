@@ -18,11 +18,10 @@ type Props = {
 };
 
 function playHit(volume: number) {
-  const hitSound = new Audio(HitSound)
+  const hitSound = new Audio(HitSound);
   hitSound.volume = volume;
   hitSound.play();
 }
-
 
 export const GameBoarCoins = ({ boardContainerRef }: Props) => {
   const [coins, setCoins] = useState<Coin[]>([]);
@@ -43,26 +42,17 @@ export const GameBoarCoins = ({ boardContainerRef }: Props) => {
       if (columnIndex < 0) columnIndex = 0;
       if (columnIndex >= columns) columnIndex = columns - 1;
 
-      const cx = calculateDistance(
-        columnIndex,
-        holeRadius,
-        padding
-      );
-      if (exactXPosition > cx + holeRadius || exactXPosition < cx - holeRadius)
-        return;
+      const cx = calculateDistance(columnIndex, holeRadius, padding);
+      if (exactXPosition > cx + holeRadius || exactXPosition < cx - holeRadius) return;
       const columnCoins = coins.filter(({ cx: coinCx }) => coinCx === cx);
       if (columnCoins.length >= rows) return;
       const rowIndex = rows - 1 - columnCoins.length;
-      const cy = calculateDistance(
-        rowIndex,
-        holeRadius,
-        padding
-      );
+      const cy = calculateDistance(rowIndex, holeRadius, padding);
       const newCoin: Coin = {
         cx,
         cy,
         fill: "#fd6687",
-        rowIndex
+        rowIndex,
       };
       setCoins([...coins, newCoin]);
     };
@@ -74,11 +64,14 @@ export const GameBoarCoins = ({ boardContainerRef }: Props) => {
   }, [boardContainerRef, coins]);
 
   const onFallAnimationStart = (duration: number, volume: number) => {
-    const soundPlayProperties = [{ duration: duration * (69 / 100), volume }, { duration, volume: volume / 2 }];
+    const soundPlayProperties = [
+      { duration: duration * (69 / 100), volume },
+      { duration, volume: volume / 2 },
+    ];
     for (const prop of soundPlayProperties) {
       setTimeout(() => playHit(prop.volume), prop.duration);
     }
-  }
+  };
 
   return (
     <>
@@ -97,12 +90,19 @@ export const GameBoarCoins = ({ boardContainerRef }: Props) => {
             style={
               {
                 "--landing-y": cy,
-                "--re-bounce-y": cy - ((rowIndex / 100) * cy),
-                "--fall-duration": `${fallDuration}ms`
+                "--re-bounce-y": cy - (rowIndex / 100) * cy,
+                "--fall-duration": `${fallDuration}ms`,
               } as React.CSSProperties
             }
-            className={styles.coin} key={`${cx}-${cy}`} r={holeRadius} cx={cx} cy={cy} filter="url(#blurMe)" fill={fill} />
-        )
+            className={styles.coin}
+            key={`${cx}-${cy}`}
+            r={holeRadius}
+            cx={cx}
+            cy={cy}
+            filter="url(#blurMe)"
+            fill={fill}
+          />
+        );
       })}
     </>
   );
