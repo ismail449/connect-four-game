@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import HitSound from "~/assets/audio/hit sound.mp3";
 import { columns, holeRadius, padding, rows } from "~/constants/game-board";
+import { useTurnContext } from "~/context/turn";
 import { calculateDistance } from "~/utils/calculateGridHolePosition";
 
 import styles from "./game-board-coins.module.css";
@@ -25,6 +26,8 @@ function playHit(volume: number) {
 
 export const GameBoarCoins = ({ boardContainerRef }: Props) => {
   const [coins, setCoins] = useState<Coin[]>([]);
+  const { getCurrentPlayer, switchTurn } = useTurnContext();
+  const { color } = getCurrentPlayer();
 
   useEffect(() => {
     if (!boardContainerRef.current) return;
@@ -51,17 +54,18 @@ export const GameBoarCoins = ({ boardContainerRef }: Props) => {
       const newCoin: Coin = {
         cx,
         cy,
-        fill: "#fd6687",
+        fill: color,
         rowIndex,
       };
       setCoins([...coins, newCoin]);
+      switchTurn();
     };
     boardContainer.addEventListener("click", handelAddCoin);
 
     return () => {
       boardContainer.removeEventListener("click", handelAddCoin);
     };
-  }, [boardContainerRef, coins]);
+  }, [boardContainerRef, coins, color, switchTurn]);
 
   const onFallAnimationStart = (duration: number, volume: number) => {
     const soundPlayProperties = [
